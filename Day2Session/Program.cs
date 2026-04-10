@@ -92,8 +92,7 @@ var using = "sdf    dsf"; // This will cause a compile-time error because 'using
 
 //camelCase
 var firstName = "John";
-//variable, parameter
-
+//variable, parameters
 
 
 
