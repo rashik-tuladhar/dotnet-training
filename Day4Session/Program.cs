@@ -110,3 +110,37 @@ namespace MyNamespace
 
 
 
+//ref and out parameters
+
+
+//ref and out parameters
+/*
+using MyNamespace;
+
+Maths maths = new Maths();
+int passByValue = 0;
+maths.AddTwoNumbersPassByValue(5, 10, out passByValue);
+Console.WriteLine(passByValue);
+
+int passByRef = 6;
+maths.AddTwoNumbersPassByReference(5, 10, ref passByRef);
+Console.WriteLine(passByRef);
+//5! = 5 * 4 * 3 * 2 * 1
+namespace MyNamespace
+{
+    public class Maths
+    { 
+        public void AddTwoNumbersPassByValue(int a, int b, out int passByValue)
+        {
+              sum = a + b;
+        }
+        
+        public void AddTwoNumbersPassByReference(int a, int b, ref int passByRef)
+        {
+            passByRef += a + b;
+        }   
+    }
+}
+*/
+
+
