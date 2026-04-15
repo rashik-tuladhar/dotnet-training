@@ -136,6 +136,153 @@ public class Maths
 }
 */
 
+//************************************ Extension Methods ************************************//
+// Extension methods allow you to add new methods to existing types without modifying the original type or creating a new derived type. 
+// They are defined as static methods in a static class, and the first parameter specifies the type that the method operates on, preceded by the 'this' keyword.
+/*
+    Syntax:
+    public static class MyExtensions. 
+    {
+        public static return_type MethodName(this Type parameter, other_parameters)
+        {
+            // method body
+        }
+    }
+*/
+// namespace ExtensionMethod
+// {
+//     public static class MyExtension
+//     {
+//         public static string ConcatCollegeName(this string personName)
+//         {
+//             return personName+" "+"Sunway College";
+//         }
+
+//         class Program
+//         {
+//             static void Main(string[] args)
+//             {
+//                 string message = "Hello World";
+//                 string outputString = message.ConcatCollegeName();
+//                 Console.WriteLine(outputString); // Output: Hello World Sunway College
+//             }
+//         }
+//     }
+// }
+
+//************************************ Complete Example With All The Learned Details ************************************//
+/*
+public class DayFourPracticeSession
+{
+    public int Square(int n)
+    {
+        return n * n;
+    }
+
+    // Overload for integer input
+    public string Describe(int n)
+    {
+        return $"Integer {n} is a whole number found on the number line.";
+    }
+
+    // Overload for double input
+    public string Describe(double n)
+    {
+        return $"Double {n} represents a number that can have fractional parts.";
+    }
+
+    public int SumUpTo(int n)
+    {
+        // Base Case: If n is 0 or less, the sum is 0.
+        if (n <= 0)
+        {
+            return 0;
+        }
+        // Recursive Step: SumUpTo(n) = n + SumUpTo(n-1)
+        return n + SumUpTo(n - 1);
+    }
+
+    public int CountVowels(string text)
+    {
+        if (string.IsNullOrEmpty(text))
+        {
+            return 0;
+        }
+
+        int count = 0;
+        // Convert the string to lowercase to handle both 'A' and 'a' easily
+        string lowerText = text.ToLower();
+
+        // Use a for loop to iterate through each character
+        for (int i = 0; i < lowerText.Length; i++)
+        {
+            char currentChar = lowerText[i];
+
+            // Check if the character is one of the vowels
+            if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u')
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+    public void Main(string[] args)
+    {
+        // --- 1. Test Square Method ---
+        int numberValue = 7;
+        int resultSquare = Square(numberValue);
+        Console.WriteLine("\n[1. Square Method]");
+        Console.WriteLine($"The square of {numberValue} is: {resultSquare}");
+
+        // --- 2. Test Overloading ---
+        Console.WriteLine("\n[2. Overloaded Describe Method]");
+        int integerNumber = 42;
+        double doubleNumber = 3.14159;
+        
+        // Calling the int overload
+        string descriptionInteger = Describe(integerNumber);
+        Console.WriteLine($"Int call: {descriptionInteger}");
+
+        // Calling the double overload
+        string descriptionDouble = Describe(doubleNumber);
+        Console.WriteLine($"Double call: {descriptionDouble}");
+
+
+        // --- 3. Test Recursive Method ---
+        int testSum = 5;
+        int resultSum = SumUpTo(testSum);
+        Console.WriteLine("\n[3. Recursive SumUpTo Method]");
+        Console.WriteLine($"Sum of numbers from 1 to {testSum}: {resultSum}");
+        // Verification check
+        if (resultSum == 15)
+        {
+            Console.WriteLine("Verification successful: SumUpTo(5) = 15.");
+        }
+
+
+        // --- 4. Test Vowel Counting Method ---
+        string testString1 = "Programming";
+        string testString2 = "Rhythm"; // No vowels
+        string testString3 = "AEIOUaeiou"; // All vowels
+
+        Console.WriteLine("\n[4. Vowel Counting Method]");
+        
+        // Test 1
+        int count1 = CountVowels(testString1);
+        Console.WriteLine($"The string '{testString1}' contains {count1} vowels.");
+
+        // Test 2
+        int count2 = CountVowels(testString2);
+        Console.WriteLine($"The string '{testString2}' contains {count2} vowels.");
+
+        // Test 3
+        int count3 = CountVowels(testString3);
+        Console.WriteLine($"The string '{testString3}' contains {count3} vowels.");
+    }
+}
+*/
+
+
 
 
 //************************************ Practice Session ************************************//
@@ -224,114 +371,5 @@ public static int CountVowels(string text)
 }
 */
 
-//Complete Program
-/*
-public class DayFourPracticeSession
-{
-    public int Square(int n)
-    {
-        return n * n;
-    }
-
-    // Overload for integer input
-    public string Describe(int n)
-    {
-        return $"Integer {n} is a whole number found on the number line.";
-    }
-
-    // Overload for double input
-    public string Describe(double n)
-    {
-        return $"Double {n} represents a number that can have fractional parts.";
-    }
-
-    public int SumUpTo(int n)
-    {
-        // Base Case: If n is 0 or less, the sum is 0.
-        if (n <= 0)
-        {
-            return 0;
-        }
-        // Recursive Step: SumUpTo(n) = n + SumUpTo(n-1)
-        return n + SumUpTo(n - 1);
-    }
-
-    public int CountVowels(string text)
-    {
-        if (string.IsNullOrEmpty(text))
-        {
-            return 0;
-        }
-
-        int count = 0;
-        // Convert the string to lowercase to handle both 'A' and 'a' easily
-        string lowerText = text.ToLower();
-
-        // Use a for loop to iterate through each character
-        for (int i = 0; i < lowerText.Length; i++)
-        {
-            char currentChar = lowerText[i];
-
-            // Check if the character is one of the vowels
-            if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u')
-            {
-                count++;
-            }
-        }
-        return count;
-    }
-    public void Main(string[] args)
-    {
-        // --- 1. Test Square Method ---
-        int num1 = 7;
-        int resultSquare = Square(num1);
-        Console.WriteLine("\n[1. Square Method]");
-        Console.WriteLine($"The square of {num1} is: {resultSquare}");
-
-        // --- 2. Test Overloading ---
-        Console.WriteLine("\n[2. Overloaded Describe Method]");
-        int intNum = 42;
-        double doubleNum = 3.14159;
-        
-        // Calling the int overload
-        string descInt = Describe(intNum);
-        Console.WriteLine($"Int call: {descInt}");
-
-        // Calling the double overload
-        string descDouble = Describe(doubleNum);
-        Console.WriteLine($"Double call: {descDouble}");
 
 
-        // --- 3. Test Recursive Method ---
-        int testSum = 5;
-        int resultSum = SumUpTo(testSum);
-        Console.WriteLine("\n[3. Recursive SumUpTo Method]");
-        Console.WriteLine($"Sum of numbers from 1 to {testSum}: {resultSum}");
-        // Verification check
-        if (resultSum == 15)
-        {
-            Console.WriteLine("Verification successful: SumUpTo(5) = 15.");
-        }
-
-
-        // --- 4. Test Vowel Counting Method ---
-        string testString1 = "Programming";
-        string testString2 = "Rhythm"; // No vowels
-        string testString3 = "AEIOUaeiou"; // All vowels
-
-        Console.WriteLine("\n[4. Vowel Counting Method]");
-        
-        // Test 1
-        int count1 = CountVowels(testString1);
-        Console.WriteLine($"The string '{testString1}' contains {count1} vowels.");
-
-        // Test 2
-        int count2 = CountVowels(testString2);
-        Console.WriteLine($"The string '{testString2}' contains {count2} vowels.");
-
-        // Test 3
-        int count3 = CountVowels(testString3);
-        Console.WriteLine($"The string '{testString3}' contains {count3} vowels.");
-    }
-}
-*/
